@@ -5,8 +5,12 @@ import { ViewBox, ViewSection } from './viewbox';
 import { joinLoHiAmount } from '@penumbra-zone/types/amount';
 
 export const TransactionViewComponent = ({ txv }: { txv: TransactionView }) => {
-  if (!txv.bodyView) throw new Error('transaction view missing body view');
-  if (!txv.bodyView.transactionParameters?.fee?.amount) throw new Error('Missing fee amount');
+  if (!txv.bodyView) {
+    throw new Error('transaction view missing body view');
+  }
+  if (!txv.bodyView.transactionParameters?.fee?.amount) {
+    throw new Error('Missing fee amount');
+  }
 
   const fee = joinLoHiAmount(txv.bodyView.transactionParameters.fee.amount).toString();
 

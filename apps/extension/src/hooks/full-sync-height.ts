@@ -9,8 +9,12 @@ import { createPromiseClient } from '@connectrpc/connect';
 
 const tryGetMax = (a?: number, b?: number): number | undefined => {
   // Height can be 0n which is falsy, so should compare to undefined state
-  if (a === undefined) return b;
-  if (b === undefined) return a;
+  if (a === undefined) {
+    return b;
+  }
+  if (b === undefined) {
+    return a;
+  }
 
   return Math.max(a, b);
 };
@@ -31,7 +35,9 @@ export const useSyncProgress = () => {
   const { data: queriedLatest, error } = useQuery({
     queryKey: ['latestBlockHeight'],
     queryFn: async () => {
-      if (!grpcEndpoint) return;
+      if (!grpcEndpoint) {
+        return;
+      }
       const tendermintClient = createPromiseClient(
         TendermintProxyService,
         createGrpcWebTransport({ baseUrl: grpcEndpoint }),

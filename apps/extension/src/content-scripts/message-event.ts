@@ -19,7 +19,9 @@ export const isPraxRequestMessageEvent = (
 export const isPraxFailureMessageEvent = (
   ev: MessageEvent<unknown>,
 ): ev is MessageEvent<PraxMessage<PraxConnection.Denied | PraxConnection.NeedsLogin>> => {
-  if (!isPraxMessageEventData(ev.data)) return false;
+  if (!isPraxMessageEventData(ev.data)) {
+    return false;
+  }
   // @ts-expect-error - ts can't understand the injected string
   const status = ev.data[PRAX] as unknown;
   return status === PraxConnection.Denied || status === PraxConnection.NeedsLogin;

@@ -35,7 +35,9 @@ export const createImport: SliceCreator<SeedPhraseSlice['import']> = (set, get) 
     const desiredLength = length === SeedPhraseLength.TWELVE_WORDS ? 12 : 24;
     const currLength = get().seedPhrase.import.phrase.length;
 
-    if (currLength === desiredLength) return;
+    if (currLength === desiredLength) {
+      return;
+    }
     if (currLength < desiredLength) {
       set(({ seedPhrase }) => {
         seedPhrase.import.phrase = seedPhrase.import.phrase.concat(

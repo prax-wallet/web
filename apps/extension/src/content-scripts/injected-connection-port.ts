@@ -4,7 +4,9 @@ import { PraxConnection } from '../message/prax';
 
 // this inits the session client that transports messages on the DOM channel through the Chrome runtime
 const initOnce = (req: unknown, _sender: chrome.runtime.MessageSender, respond: () => void) => {
-  if (req !== PraxConnection.Init) return false;
+  if (req !== PraxConnection.Init) {
+    return false;
+  }
   chrome.runtime.onMessage.removeListener(initOnce);
 
   const port = CRSessionClient.init(PRAX);

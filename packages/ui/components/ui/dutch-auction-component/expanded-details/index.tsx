@@ -25,7 +25,9 @@ export const ExpandedDetails = ({
   fullSyncHeight?: bigint;
 }) => {
   const { description } = dutchAuction;
-  if (!description) return null;
+  if (!description) {
+    return null;
+  }
 
   const maxPrice = getPrice(description, inputMetadata, description.startHeight);
   const currentPrice = getPrice(description, inputMetadata, fullSyncHeight);

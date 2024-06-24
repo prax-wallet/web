@@ -35,7 +35,9 @@ export const createOriginApprovalSlice = (): SliceCreator<OriginApprovalSlice> =
     responder,
   ) => {
     const existing = get().originApproval;
-    if (existing.responder) throw new Error('Another request is still pending');
+    if (existing.responder) {
+      throw new Error('Another request is still pending');
+    }
 
     set(state => {
       state.originApproval.favIconUrl = favIconUrl;
@@ -49,10 +51,14 @@ export const createOriginApprovalSlice = (): SliceCreator<OriginApprovalSlice> =
   sendResponse: () => {
     const { responder, choice, requestOrigin } = get().originApproval;
 
-    if (!responder) throw new Error('No responder');
+    if (!responder) {
+      throw new Error('No responder');
+    }
 
     try {
-      if (choice === undefined || !requestOrigin) throw new Error('Missing response data');
+      if (choice === undefined || !requestOrigin) {
+        throw new Error('Missing response data');
+      }
       responder({
         type: PopupType.OriginApproval,
         data: {

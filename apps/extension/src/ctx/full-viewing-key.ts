@@ -4,7 +4,9 @@ import { localExtStorage } from '../storage/local';
 
 export const getFullViewingKey = async () => {
   const wallet0 = (await localExtStorage.get('wallets'))[0];
-  if (!wallet0) throw new ConnectError('No wallet available', Code.FailedPrecondition);
+  if (!wallet0) {
+    throw new ConnectError('No wallet available', Code.FailedPrecondition);
+  }
 
   return FullViewingKey.fromJsonString(wallet0.fullViewingKey);
 };

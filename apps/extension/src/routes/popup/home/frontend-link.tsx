@@ -12,7 +12,9 @@ export const FrontendLink = () => {
 
   // In case the frontendUrl is not set, prevent the link action, and open the settings page instead
   const onClick: MouseEventHandler = event => {
-    if (frontendUrl) return;
+    if (frontendUrl) {
+      return;
+    }
     event.stopPropagation();
     navigate(PopupPath.SETTINGS_DEFAULT_FRONTEND);
   };

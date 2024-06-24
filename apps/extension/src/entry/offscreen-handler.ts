@@ -8,7 +8,9 @@ import {
 } from '@penumbra-zone/types/internal-msg/offscreen';
 
 chrome.runtime.onMessage.addListener((req, _sender, respond) => {
-  if (!isOffscreenRequest(req)) return false;
+  if (!isOffscreenRequest(req)) {
+    return false;
+  }
   const { type, request } = req;
   if (isActionBuildRequest(request)) {
     void (async () => {

@@ -34,7 +34,9 @@ export const GrpcEndpointForm = ({
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (isSubmitButtonEnabled) void onSubmit(onSuccess);
+    if (isSubmitButtonEnabled) {
+      void onSubmit(onSuccess);
+    }
   };
 
   return (
@@ -78,7 +80,9 @@ export const GrpcEndpointForm = ({
                 />
               }
               onSelect={() => {
-                if (!isCustomGrpcEndpoint) setGrpcEndpointInput('');
+                if (!isCustomGrpcEndpoint) {
+                  setGrpcEndpointInput('');
+                }
                 customGrpcEndpointInput.current?.focus();
               }}
               isSelected={isCustomGrpcEndpoint}

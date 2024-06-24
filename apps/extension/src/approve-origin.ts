@@ -45,8 +45,9 @@ export const approveOrigin = async ({
   tab,
   frameId,
 }: chrome.runtime.MessageSender): Promise<UserChoice> => {
-  if (!senderOrigin?.startsWith('https://') || !tab?.id || frameId)
+  if (!senderOrigin?.startsWith('https://') || !tab?.id || frameId) {
     throw new Error('Unsupported sender');
+  }
 
   // parses the origin and returns a consistent format
   const urlOrigin = new URL(senderOrigin).origin;

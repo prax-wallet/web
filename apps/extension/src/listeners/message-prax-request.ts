@@ -8,7 +8,9 @@ import { UserChoice } from '@penumbra-zone/types/user-choice';
 // this is the only message we handle from an unapproved content script.
 chrome.runtime.onMessage.addListener(
   (req: PraxConnection.Request | JsonValue, sender, respond: (arg: PraxConnection) => void) => {
-    if (req !== PraxConnection.Request) return false; // instruct chrome we will not respond
+    if (req !== PraxConnection.Request) {
+      return false;
+    } // instruct chrome we will not respond
 
     void approveOrigin(sender).then(
       status => {
