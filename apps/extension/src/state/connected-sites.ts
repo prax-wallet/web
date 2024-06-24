@@ -32,7 +32,9 @@ export const createConnectedSitesSlice =
 
 export const allSitesFilteredOutSelector = (state: AllSlices) => {
   const filter = state.connectedSites.filter;
-  if (!filter) return false;
+  if (!filter) {
+    return false;
+  }
 
   return !state.connectedSites.knownSites.some(site => site.origin.includes(filter));
 };

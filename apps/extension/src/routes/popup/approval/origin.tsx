@@ -30,7 +30,9 @@ export const OriginApproval = () => {
     window.close();
   };
 
-  if (!requestOrigin) return null;
+  if (!requestOrigin) {
+    return null;
+  }
 
   return (
     <FadeTransition>

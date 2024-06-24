@@ -12,7 +12,9 @@ export const SettingsRPC = () => {
     const { promise, resolve } = Promise.withResolvers<void>();
     setCountdownTime(seconds);
     setInterval(() => {
-      if (!seconds) resolve(undefined);
+      if (!seconds) {
+        resolve(undefined);
+      }
       setCountdownTime(--seconds);
     }, 1000);
     return promise;

@@ -10,14 +10,19 @@ const wrapUnaryImpl =
   (req: AnyMessage, ctx: HandlerContext) => {
     try {
       const result = methodImplementation(req, ctx);
-      if (result instanceof Promise)
+      if (result instanceof Promise) {
         return result.catch((e: unknown) => {
-          if (globalThis.__DEV__) console.debug(ctx.method.name, req, e);
+          if (globalThis.__DEV__) {
+            console.debug(ctx.method.name, req, e);
+          }
           throw ConnectError.from(e);
         });
+      }
       return result;
     } catch (e) {
-      if (globalThis.__DEV__) console.debug(ctx.method.name, req, e);
+      if (globalThis.__DEV__) {
+        console.debug(ctx.method.name, req, e);
+      }
       throw ConnectError.from(e);
     }
   };
@@ -31,7 +36,9 @@ const wrapServerStreamingImpl = (
         yield result;
       }
     } catch (e) {
-      if (globalThis.__DEV__) console.debug(ctx.method.name, req, e);
+      if (globalThis.__DEV__) {
+        console.debug(ctx.method.name, req, e);
+      }
       throw ConnectError.from(e);
     }
   };

@@ -21,8 +21,9 @@ export const approveTransaction = async (
   if (popupResponse) {
     const resAuthorizeRequest = AuthorizeRequest.fromJson(popupResponse.authorizeRequest);
 
-    if (!authorizeRequest.equals(resAuthorizeRequest))
+    if (!authorizeRequest.equals(resAuthorizeRequest)) {
       throw new Error('Invalid response from popup');
+    }
   }
 
   return popupResponse?.choice;

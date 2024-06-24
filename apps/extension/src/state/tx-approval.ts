@@ -56,7 +56,9 @@ export interface TxApprovalSlice {
 export const createTxApprovalSlice = (): SliceCreator<TxApprovalSlice> => (set, get) => ({
   acceptRequest: async ({ request: { authorizeRequest: authReqJson } }, responder) => {
     const existing = get().txApproval;
-    if (existing.responder) throw new Error('Another request is still pending');
+    if (existing.responder) {
+      throw new Error('Another request is still pending');
+    }
 
     const authorizeRequest = AuthorizeRequest.fromJson(authReqJson);
 
@@ -118,11 +120,14 @@ export const createTxApprovalSlice = (): SliceCreator<TxApprovalSlice> => (set, 
       authorizeRequest: authorizeRequestString,
     } = get().txApproval;
 
-    if (!responder) throw new Error('No responder');
+    if (!responder) {
+      throw new Error('No responder');
+    }
 
     try {
-      if (choice === undefined || !transactionViewString || !authorizeRequestString)
+      if (choice === undefined || !transactionViewString || !authorizeRequestString) {
         throw new Error('Missing response data');
+      }
 
       // zustand doesn't like jsonvalue so stringify
       const authorizeRequest = AuthorizeRequest.fromJsonString(

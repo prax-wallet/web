@@ -43,13 +43,17 @@ const getChainId = async (baseUrl: string) => {
     .get('params')
     .then(json => json && AppParameters.fromJsonString(json).chainId);
 
-  if (localChainId) return localChainId;
+  if (localChainId) {
+    return localChainId;
+  }
 
   const remoteChainId = (
     await createPromiseClient(AppService, createGrpcWebTransport({ baseUrl })).appParameters({})
   ).appParameters?.chainId;
 
-  if (remoteChainId) return remoteChainId;
+  if (remoteChainId) {
+    return remoteChainId;
+  }
 
   throw new Error('No chainId available');
 };

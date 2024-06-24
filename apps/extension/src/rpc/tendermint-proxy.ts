@@ -23,8 +23,12 @@ export const makeTendermintProxyZeroNanos = (
 ): Pick<ServiceImpl<typeof TendermintProxyService>, 'getBlockByHeight'> => ({
   getBlockByHeight: async req => {
     const r = await c.getBlockByHeight(req);
-    if (r.block?.header?.time?.nanos) r.block.header.time.nanos = 0;
-    if (r.block?.lastCommit?.signatures.length) r.block.lastCommit.signatures = [];
+    if (r.block?.header?.time?.nanos) {
+      r.block.header.time.nanos = 0;
+    }
+    if (r.block?.lastCommit?.signatures.length) {
+      r.block.lastCommit.signatures = [];
+    }
     return r;
   },
 });

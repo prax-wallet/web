@@ -3,7 +3,9 @@ import { viewClient } from '../clients';
 
 const getChainIdViaViewService = async (): Promise<string> => {
   const { parameters } = await viewClient.appParameters({});
-  if (!parameters?.chainId) throw new Error('No chainId in response');
+  if (!parameters?.chainId) {
+    throw new Error('No chainId in response');
+  }
 
   return parameters.chainId;
 };

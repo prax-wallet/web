@@ -9,7 +9,9 @@ export const ChainIdOrError = ({
   chainId?: string;
   chainIdChanged: boolean;
 }) => {
-  if (!error && !chainId) return null;
+  if (!error && !chainId) {
+    return null;
+  }
 
   return (
     <div

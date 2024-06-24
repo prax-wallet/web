@@ -6,7 +6,9 @@ export const Result = ({
 }: {
   addressOwnershipInfo?: AddressOwnershipInfo;
 }) => {
-  if (!addressOwnershipInfo) return null;
+  if (!addressOwnershipInfo) {
+    return null;
+  }
 
   if (!addressOwnershipInfo.isValidAddress) {
     return (

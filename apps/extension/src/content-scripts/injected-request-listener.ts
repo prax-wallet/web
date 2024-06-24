@@ -10,13 +10,14 @@ const handleRequest = (ev: MessageEvent<unknown>) => {
         Exclude<PraxConnection, PraxConnection.Request>
       >(PraxConnection.Request);
       // init is handled by injected-connection-port
-      if (result !== PraxConnection.Init)
+      if (result !== PraxConnection.Init) {
         window.postMessage(
           { [PRAX]: result } satisfies PraxMessage<
             PraxConnection.Denied | PraxConnection.NeedsLogin
           >,
           '/',
         );
+      }
     })();
   }
 };

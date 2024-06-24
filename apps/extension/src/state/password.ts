@@ -34,10 +34,14 @@ export const createPasswordSlice =
       },
       setSessionPassword: async password => {
         const keyPrintJson = await local.get('passwordKeyPrint');
-        if (!keyPrintJson) throw new Error('Password KeyPrint not in storage');
+        if (!keyPrintJson) {
+          throw new Error('Password KeyPrint not in storage');
+        }
 
         const key = await Key.recreate(password, KeyPrint.fromJson(keyPrintJson));
-        if (!key) throw new Error('Password does not match KeyPrint');
+        if (!key) {
+          throw new Error('Password does not match KeyPrint');
+        }
 
         const keyJson = await key.toJson();
 
@@ -53,7 +57,9 @@ export const createPasswordSlice =
       },
       isPassword: async attempt => {
         const keyPrintJson = await local.get('passwordKeyPrint');
-        if (!keyPrintJson) throw new Error('Password KeyPrint not in storage');
+        if (!keyPrintJson) {
+          throw new Error('Password KeyPrint not in storage');
+        }
 
         const key = await Key.recreate(attempt, KeyPrint.fromJson(keyPrintJson));
         return Boolean(key);

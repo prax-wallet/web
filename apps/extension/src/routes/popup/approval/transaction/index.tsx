@@ -16,9 +16,13 @@ export const TransactionApproval = () => {
   const { selectedTransactionView, selectedTransactionViewName, setSelectedTransactionViewName } =
     useTransactionViewSwitcher();
 
-  if (!authReqString) return null;
+  if (!authReqString) {
+    return null;
+  }
   const authorizeRequest = AuthorizeRequest.fromJsonString(authReqString);
-  if (!authorizeRequest.plan || !selectedTransactionView) return null;
+  if (!authorizeRequest.plan || !selectedTransactionView) {
+    return null;
+  }
 
   const approve = () => {
     setChoice(UserChoice.Approved);

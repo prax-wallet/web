@@ -10,7 +10,8 @@ chrome.tabs.onUpdated.addListener(
         !discarded &&
         url?.startsWith('https://') &&
         (await originAlreadyApproved(url))
-      )
+      ) {
         void chrome.tabs.sendMessage(tabId, PraxConnection.Init);
+      }
     })(),
 );

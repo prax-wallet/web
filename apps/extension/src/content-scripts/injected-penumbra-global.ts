@@ -41,7 +41,9 @@ const connectionListener = (msg: MessageEvent<unknown>) => {
   if (isPraxPortMessageEvent(msg) && msg.origin === window.origin) {
     // @ts-expect-error - ts can't understand the injected string
     const praxPort: unknown = msg.data[PRAX];
-    if (praxPort instanceof MessagePort) connection.resolve(praxPort);
+    if (praxPort instanceof MessagePort) {
+      connection.resolve(praxPort);
+    }
   }
 };
 window.addEventListener('message', connectionListener);
