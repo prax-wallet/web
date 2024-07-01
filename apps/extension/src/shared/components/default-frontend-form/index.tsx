@@ -22,7 +22,11 @@ const getFrontendsFromRegistry = (selectedRpc?: string): DisplayedFrontend[] => 
   }));
 
   if (selectedRpc) {
-    registeredFrontends.push({ title: 'Embedded RPC frontend', url: `${selectedRpc}/app/` });
+    registeredFrontends.push({
+      title: 'Embedded RPC frontend',
+      /*NB: we merge using the variadic URL constructor here to avoid double-slashes*/
+      url: new URL('/app/', selectedRpc).href,
+    });
   }
 
   return registeredFrontends;
