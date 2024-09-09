@@ -34,7 +34,6 @@
   },
   "devDependencies": {
     "@changesets/cli": "^2.27.8",
-    "@repo/eslint-config": "workspace:*",
     "@repo/tailwind-config": "workspace:*",
     "@repo/tsconfig": "workspace:*",
     "@storybook/react-vite": "8.2.9",
@@ -43,6 +42,7 @@
     "@vitest/browser": "^2.0.5",
     "jsdom": "^25.0.0",
     "playwright": "^1.47.0",
+    "prax-configs": "github:prax-wallet/configs#main",
     "prettier": "^3.3.3",
     "syncpack": "^13.0.0",
     "tailwindcss": "^3.4.10",
