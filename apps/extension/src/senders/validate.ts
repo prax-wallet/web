@@ -35,12 +35,7 @@ export const assertValidSender = (sender?: chrome.runtime.MessageSender) => {
     throw new Error('Sender origin is invalid');
   }
 
-  if (
-    !(
-      parsedOrigin.protocol in ValidProtocol ||
-      (globalThis.__DEV__ && isHttpLocalhost(parsedOrigin))
-    )
-  ) {
+  if (!(parsedOrigin.protocol in ValidProtocol || isHttpLocalhost(parsedOrigin))) {
     throw new Error(`Sender protocol is not ${Object.values(ValidProtocol).join(',')}`);
   }
 
