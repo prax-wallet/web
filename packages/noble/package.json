@@ -1,0 +1,23 @@
+{
+  "name": "@repo/noble",
+  "version": "1.0.0",
+  "private": true,
+  "license": "(MIT OR Apache-2.0)",
+  "type": "module",
+  "scripts": {
+    "lint": "eslint \"**/*.ts*\"",
+    "test": "vitest run"
+  },
+  "files": [
+    "src/",
+    "*.md"
+  ],
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "dependencies": {
+    "@penumbra-zone/protobuf": "6.1.0",
+    "@penumbra-zone/wasm": "29.1.0",
+    "@penumbra-zone/bech32m": "8.0.0"
+  }
+}
