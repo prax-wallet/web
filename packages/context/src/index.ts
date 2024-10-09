@@ -107,7 +107,6 @@ export class Services implements ServicesInterface {
 
     const viewServer = await ViewServer.initialize({
       fullViewingKey,
-      epochDuration: sctParams.epochDuration,
       getStoredTree: () => indexedDb.getStateCommitmentTree(),
       idbConstants: indexedDb.constants(),
     });

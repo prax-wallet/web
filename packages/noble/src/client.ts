@@ -5,7 +5,7 @@ export enum NobleRegistrationResponse {
 }
 
 export interface NobleClientInterface {
-  registerAccount: (nobleAddr: string) => Promise<NobleRegistrationResponse>;
+  registerAccount: (forwardingAddr: string) => Promise<NobleRegistrationResponse>;
 }
 
 export class NobleClient implements NobleClientInterface {

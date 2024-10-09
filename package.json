@@ -50,5 +50,43 @@
     "turbo": "^2.1.1",
     "typescript": "^5.5.4",
     "vitest": "1.x"
+  },
+  "pnpm": {
+    "overrides": {
+      "@penumbra-zone/bech32m": "file:///Users/gabe/Desktop/repos/web/packages/bech32m/penumbra-zone-bech32m-8.0.0.tgz",
+      "@penumbra-zone/client": "file:///Users/gabe/Desktop/repos/web/packages/client/penumbra-zone-client-19.0.0.tgz",
+      "@penumbra-zone/crypto-web": "file:///Users/gabe/Desktop/repos/web/packages/crypto/penumbra-zone-crypto-web-25.0.0.tgz",
+      "@penumbra-zone/getters": "file:///Users/gabe/Desktop/repos/web/packages/getters/penumbra-zone-getters-18.0.0.tgz",
+      "@penumbra-zone/keys": "file:///Users/gabe/Desktop/repos/web/packages/keys/penumbra-zone-keys-4.2.1.tgz",
+      "@penumbra-zone/perspective": "file:///Users/gabe/Desktop/repos/web/packages/perspective/penumbra-zone-perspective-32.0.0.tgz",
+      "@penumbra-zone/protobuf": "file:///Users/gabe/Desktop/repos/web/packages/protobuf/penumbra-zone-protobuf-6.1.0.tgz",
+      "@penumbra-zone/query": "file:///Users/gabe/Desktop/repos/web/packages/query/penumbra-zone-query-33.0.0.tgz",
+      "@penumbra-zone/services": "file:///Users/gabe/Desktop/repos/web/packages/services/penumbra-zone-services-36.0.0.tgz",
+      "@penumbra-zone/storage": "file:///Users/gabe/Desktop/repos/web/packages/storage/penumbra-zone-storage-32.0.0.tgz",
+      "@penumbra-zone/transport-chrome": "file:///Users/gabe/Desktop/repos/web/packages/transport-chrome/penumbra-zone-transport-chrome-8.0.1.tgz",
+      "@penumbra-zone/transport-dom": "file:///Users/gabe/Desktop/repos/web/packages/transport-dom/penumbra-zone-transport-dom-7.5.0.tgz",
+      "@penumbra-zone/types": "file:///Users/gabe/Desktop/repos/web/packages/types/penumbra-zone-types-24.0.0.tgz",
+      "@penumbra-zone/ui": "file:///Users/gabe/Desktop/repos/web/packages/ui/penumbra-zone-ui-10.0.2.tgz",
+      "@penumbra-zone/wasm": "file:///Users/gabe/Desktop/repos/web/packages/wasm/penumbra-zone-wasm-29.1.0.tgz"
+    },
+    "peerDependencyRules": {
+      "allowAny": [
+        "@penumbra-zone/bech32m",
+        "@penumbra-zone/client",
+        "@penumbra-zone/crypto-web",
+        "@penumbra-zone/getters",
+        "@penumbra-zone/keys",
+        "@penumbra-zone/perspective",
+        "@penumbra-zone/protobuf",
+        "@penumbra-zone/query",
+        "@penumbra-zone/services",
+        "@penumbra-zone/storage",
+        "@penumbra-zone/transport-chrome",
+        "@penumbra-zone/transport-dom",
+        "@penumbra-zone/types",
+        "@penumbra-zone/ui",
+        "@penumbra-zone/wasm"
+      ]
+    }
   }
 }

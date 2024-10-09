@@ -1,6 +1,6 @@
-import { Address, FullViewingKey } from '@penumbra-zone/protobuf/penumbra/core/keys/v1/keys_pb';
+import { FullViewingKey } from '@penumbra-zone/protobuf/penumbra/core/keys/v1/keys_pb';
 import { NobleClientInterface, NobleRegistrationResponse } from './client';
-import { getEphemeralByIndex } from '@penumbra-zone/wasm/keys';
+import { getForwardingAddressForSequence } from '@penumbra-zone/wasm/keys';
 import { bech32mAddress } from '@penumbra-zone/bech32m/penumbra';
 
 // Search space (sequence number) is 2 bytes wide
@@ -8,17 +8,19 @@ const MAX_SEQUENCE_NUMBER = 65535;
 
 // Perform binary search to find the first unused noble sequence number
 export const getNextSequence = async ({
-  address,
+  fvk,
+  accountIndex,
   client,
 }: {
-  address: Address;
   client: NobleClientInterface;
+  fvk: FullViewingKey;
+  accountIndex?: number;
 }): Promise<number> => {
   const left = 0;
   const right = MAX_SEQUENCE_NUMBER;
   const mid = Math.floor((left + right) / 2);
 
-  return searchAndFetchSequence({ address, left, right, mid, client });
+  return searchAndFetchSequence({ fvk, accountIndex, client, left, right, mid });
 };
 
 // Helper function to perform recursive binary search
@@ -35,9 +37,9 @@ const searchAndFetchSequence = async ({
   mid: number;
   client: NobleClientInterface;
   fvk: FullViewingKey;
-  accountIndex: number;
+  accountIndex?: number;
 }): Promise<number> => {
-  const addr = getEphemeralByIndex(fvk, accountIndex); // should make special noble wasm func
+  const addr = getForwardingAddressForSequence(mid, fvk, accountIndex);
   const bech32Addr = bech32mAddress(addr);
   const response = await client.registerAccount(bech32Addr);
 
@@ -52,7 +54,8 @@ const searchAndFetchSequence = async ({
         left,
         right: mid,
         mid: Math.floor((left + mid) / 2),
-        address,
+        fvk,
+        accountIndex,
         client,
       });
 
@@ -71,7 +74,8 @@ const searchAndFetchSequence = async ({
         left: mid,
         right,
         mid: Math.floor((right + mid) / 2),
-        address,
+        fvk,
+        accountIndex,
         client,
       });
   }
