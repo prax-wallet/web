@@ -1,10 +1,9 @@
 import { FullViewingKey } from '@penumbra-zone/protobuf/penumbra/core/keys/v1/keys_pb';
 import { NobleClientInterface, NobleRegistrationResponse } from './client';
 import { getForwardingAddressForSequence } from '@penumbra-zone/wasm/keys';
-import { bech32mAddress } from '@penumbra-zone/bech32m/penumbra';
 
 // Search space (sequence number) is 2 bytes wide
-const MAX_SEQUENCE_NUMBER = 65535;
+export const MAX_SEQUENCE_NUMBER = 65535;
 
 // Perform binary search to find the first unused noble sequence number
 export const getNextSequence = async ({
@@ -40,8 +39,7 @@ const searchAndFetchSequence = async ({
   accountIndex?: number;
 }): Promise<number> => {
   const addr = getForwardingAddressForSequence(mid, fvk, accountIndex);
-  const bech32Addr = bech32mAddress(addr);
-  const response = await client.registerAccount(bech32Addr);
+  const response = await client.registerAccount(addr);
 
   switch (response) {
     case NobleRegistrationResponse.NeedsDeposit:

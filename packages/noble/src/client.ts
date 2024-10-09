@@ -1,3 +1,5 @@
+import { Address } from '@penumbra-zone/protobuf/penumbra/core/keys/v1/keys_pb';
+
 export enum NobleRegistrationResponse {
   NeedsDeposit,
   Success,
@@ -5,7 +7,7 @@ export enum NobleRegistrationResponse {
 }
 
 export interface NobleClientInterface {
-  registerAccount: (forwardingAddr: string) => Promise<NobleRegistrationResponse>;
+  registerAccount: (forwardingAddr: Address) => Promise<NobleRegistrationResponse>;
 }
 
 export class NobleClient implements NobleClientInterface {
