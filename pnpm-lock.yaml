@@ -9,7 +9,6 @@ overrides:
   '@penumbra-zone/client': file:///Users/gabe/Desktop/repos/web/packages/client/penumbra-zone-client-19.0.0.tgz
   '@penumbra-zone/crypto-web': file:///Users/gabe/Desktop/repos/web/packages/crypto/penumbra-zone-crypto-web-25.0.0.tgz
   '@penumbra-zone/getters': file:///Users/gabe/Desktop/repos/web/packages/getters/penumbra-zone-getters-18.0.0.tgz
-  '@penumbra-zone/keys': file:///Users/gabe/Desktop/repos/web/packages/keys/penumbra-zone-keys-4.2.1.tgz
   '@penumbra-zone/perspective': file:///Users/gabe/Desktop/repos/web/packages/perspective/penumbra-zone-perspective-32.0.0.tgz
   '@penumbra-zone/protobuf': file:///Users/gabe/Desktop/repos/web/packages/protobuf/penumbra-zone-protobuf-6.1.0.tgz
   '@penumbra-zone/query': file:///Users/gabe/Desktop/repos/web/packages/query/penumbra-zone-query-33.0.0.tgz
@@ -116,8 +115,8 @@ importers:
         specifier: file:///Users/gabe/Desktop/repos/web/packages/getters/penumbra-zone-getters-18.0.0.tgz
         version: file:../web/packages/getters/penumbra-zone-getters-18.0.0.tgz(@bufbuild/protobuf@1.10.0)(@penumbra-zone/bech32m@file:../web/packages/bech32m/penumbra-zone-bech32m-8.0.0.tgz(@penumbra-zone/protobuf@file:../web/packages/protobuf/penumbra-zone-protobuf-6.1.0.tgz(@bufbuild/protobuf@1.10.0)))(@penumbra-zone/protobuf@file:../web/packages/protobuf/penumbra-zone-protobuf-6.1.0.tgz(@bufbuild/protobuf@1.10.0))
       '@penumbra-zone/keys':
-        specifier: file:///Users/gabe/Desktop/repos/web/packages/keys/penumbra-zone-keys-4.2.1.tgz
-        version: file:../web/packages/keys/penumbra-zone-keys-4.2.1.tgz
+        specifier: 4.2.1
+        version: 4.2.1
       '@penumbra-zone/perspective':
         specifier: file:///Users/gabe/Desktop/repos/web/packages/perspective/penumbra-zone-perspective-32.0.0.tgz
         version: file:../web/packages/perspective/penumbra-zone-perspective-32.0.0.tgz(@bufbuild/protobuf@1.10.0)(@penumbra-zone/bech32m@file:../web/packages/bech32m/penumbra-zone-bech32m-8.0.0.tgz(@penumbra-zone/protobuf@file:../web/packages/protobuf/penumbra-zone-protobuf-6.1.0.tgz(@bufbuild/protobuf@1.10.0)))(@penumbra-zone/getters@file:../web/packages/getters/penumbra-zone-getters-18.0.0.tgz(@bufbuild/protobuf@1.10.0)(@penumbra-zone/bech32m@file:../web/packages/bech32m/penumbra-zone-bech32m-8.0.0.tgz(@penumbra-zone/protobuf@file:../web/packages/protobuf/penumbra-zone-protobuf-6.1.0.tgz(@bufbuild/protobuf@1.10.0)))(@penumbra-zone/protobuf@file:../web/packages/protobuf/penumbra-zone-protobuf-6.1.0.tgz(@bufbuild/protobuf@1.10.0)))(@penumbra-zone/protobuf@file:../web/packages/protobuf/penumbra-zone-protobuf-6.1.0.tgz(@bufbuild/protobuf@1.10.0))(@penumbra-zone/wasm@file:../web/packages/wasm/penumbra-zone-wasm-29.1.0.tgz(p2omax6xe2f7bd2gs6rblgmzgi))
@@ -279,8 +278,8 @@ importers:
         specifier: file:///Users/gabe/Desktop/repos/web/packages/getters/penumbra-zone-getters-18.0.0.tgz
         version: file:../web/packages/getters/penumbra-zone-getters-18.0.0.tgz(@bufbuild/protobuf@1.10.0)(@penumbra-zone/bech32m@file:../web/packages/bech32m/penumbra-zone-bech32m-8.0.0.tgz(@penumbra-zone/protobuf@file:../web/packages/protobuf/penumbra-zone-protobuf-6.1.0.tgz(@bufbuild/protobuf@1.10.0)))(@penumbra-zone/protobuf@file:../web/packages/protobuf/penumbra-zone-protobuf-6.1.0.tgz(@bufbuild/protobuf@1.10.0))
       '@penumbra-zone/keys':
-        specifier: file:///Users/gabe/Desktop/repos/web/packages/keys/penumbra-zone-keys-4.2.1.tgz
-        version: file:../web/packages/keys/penumbra-zone-keys-4.2.1.tgz
+        specifier: 4.2.1
+        version: 4.2.1
       '@penumbra-zone/perspective':
         specifier: file:///Users/gabe/Desktop/repos/web/packages/perspective/penumbra-zone-perspective-32.0.0.tgz
         version: file:../web/packages/perspective/penumbra-zone-perspective-32.0.0.tgz(@bufbuild/protobuf@1.10.0)(@penumbra-zone/bech32m@file:../web/packages/bech32m/penumbra-zone-bech32m-8.0.0.tgz(@penumbra-zone/protobuf@file:../web/packages/protobuf/penumbra-zone-protobuf-6.1.0.tgz(@bufbuild/protobuf@1.10.0)))(@penumbra-zone/getters@file:../web/packages/getters/penumbra-zone-getters-18.0.0.tgz(@bufbuild/protobuf@1.10.0)(@penumbra-zone/bech32m@file:../web/packages/bech32m/penumbra-zone-bech32m-8.0.0.tgz(@penumbra-zone/protobuf@file:../web/packages/protobuf/penumbra-zone-protobuf-6.1.0.tgz(@bufbuild/protobuf@1.10.0)))(@penumbra-zone/protobuf@file:../web/packages/protobuf/penumbra-zone-protobuf-6.1.0.tgz(@bufbuild/protobuf@1.10.0)))(@penumbra-zone/protobuf@file:../web/packages/protobuf/penumbra-zone-protobuf-6.1.0.tgz(@bufbuild/protobuf@1.10.0))(@penumbra-zone/wasm@file:../web/packages/wasm/penumbra-zone-wasm-29.1.0.tgz(p2omax6xe2f7bd2gs6rblgmzgi))
@@ -1943,7 +1942,7 @@ packages:
       '@penumbra-zone/protobuf': file:///Users/gabe/Desktop/repos/web/packages/protobuf/penumbra-zone-protobuf-6.1.0.tgz
 
   '@penumbra-zone/client@file:../web/packages/client/penumbra-zone-client-19.0.0.tgz':
-    resolution: {integrity: sha512-P88zuTVJXRhssuX3dAGAHfgh4jLi16qaLM1i8vUazJSPXxLjNwjrYYEA18s7O5fUuWxL56aG6aeYq/karxmx4A==, tarball: file:../web/packages/client/penumbra-zone-client-19.0.0.tgz}
+    resolution: {integrity: sha512-N/O4nnQq7P6V1L/pjRjpzd3XCJOIaHo+yTp/x9iX3dzIO8J2hdC8mJl9kPEwO+d7jim/wwzQ4DiBvdYnCxO/eA==, tarball: file:../web/packages/client/penumbra-zone-client-19.0.0.tgz}
     version: 19.0.0
     peerDependencies:
       '@bufbuild/protobuf': ^1.10.0
@@ -1958,20 +1957,19 @@ packages:
       '@penumbra-zone/types': file:///Users/gabe/Desktop/repos/web/packages/types/penumbra-zone-types-24.0.0.tgz
 
   '@penumbra-zone/getters@file:../web/packages/getters/penumbra-zone-getters-18.0.0.tgz':
-    resolution: {integrity: sha512-V8JbssdTvy8EBo+CaQ5ebVhCFk3T7BK85emjoqwgzjiGuiPTTLhT8M9v7Ph+hqutA1gfQnf3xhIekzSfiRA9kg==, tarball: file:../web/packages/getters/penumbra-zone-getters-18.0.0.tgz}
+    resolution: {integrity: sha512-dsU3Hq/r8RSb+4ifZ4moKnRhKrdMEacLPLYf0mmGMyFm+xyIW5y6FvRShNQROuPhu0nbJ5JlIZV9vSrIwi2uAQ==, tarball: file:../web/packages/getters/penumbra-zone-getters-18.0.0.tgz}
     version: 18.0.0
     peerDependencies:
       '@bufbuild/protobuf': ^1.10.0
       '@penumbra-zone/bech32m': file:///Users/gabe/Desktop/repos/web/packages/bech32m/penumbra-zone-bech32m-8.0.0.tgz
       '@penumbra-zone/protobuf': file:///Users/gabe/Desktop/repos/web/packages/protobuf/penumbra-zone-protobuf-6.1.0.tgz
 
-  '@penumbra-zone/keys@file:../web/packages/keys/penumbra-zone-keys-4.2.1.tgz':
-    resolution: {integrity: sha512-Zaw751Kbz3dj36757Y3CmTeIqVKErglgCXJ+4eAA6M74fmI5HkAhluiK1Ysq3Uew8RtEIe16cW957dqRysrVKA==, tarball: file:../web/packages/keys/penumbra-zone-keys-4.2.1.tgz}
-    version: 4.2.1
+  '@penumbra-zone/keys@4.2.1':
+    resolution: {integrity: sha512-1K+/8bh53Kse4u/I1afUQuRrTnZhLLA6JWIV+mFiXX8An2J2CGIVDjp1mSJkUSzFjFDUzUX052kvYHCtZYK3QA==}
     hasBin: true
 
   '@penumbra-zone/perspective@file:../web/packages/perspective/penumbra-zone-perspective-32.0.0.tgz':
-    resolution: {integrity: sha512-GJQSH9byD6y4cE91ZQ753MKTAY/UVYr11L4xKN9R4khzyWoqH4Jw2KK1Mfn97mvO1W77QcRsxFrjHsfDq1ixaw==, tarball: file:../web/packages/perspective/penumbra-zone-perspective-32.0.0.tgz}
+    resolution: {integrity: sha512-hKUh5spRvsTTKMpmINKQwUd5YEona3KQLADizzKJPMVh1KLDJdbvaKdXyHXHz4E65uI9PUVm7dHnbJ3H6lAr0g==, tarball: file:../web/packages/perspective/penumbra-zone-perspective-32.0.0.tgz}
     version: 32.0.0
     peerDependencies:
       '@bufbuild/protobuf': ^1.10.0
@@ -1981,13 +1979,13 @@ packages:
       '@penumbra-zone/wasm': file:///Users/gabe/Desktop/repos/web/packages/wasm/penumbra-zone-wasm-29.1.0.tgz
 
   '@penumbra-zone/protobuf@file:../web/packages/protobuf/penumbra-zone-protobuf-6.1.0.tgz':
-    resolution: {integrity: sha512-hz1Ur0w7gHSzF0GtQ8fAAIOgNo3AO/srups8vD+noYAOHhU2UBQU8Q/JMUu3xHS6eGG362/zcCXz63js/BNrfw==, tarball: file:../web/packages/protobuf/penumbra-zone-protobuf-6.1.0.tgz}
+    resolution: {integrity: sha512-shGX+ReTyt2/UbGQv1OfOkJG1fznBdrgoD2Zuk4OG00FdOEPshyjlLFQkCUjZon4OFtiy8zRkPJazxpBk2qflA==, tarball: file:../web/packages/protobuf/penumbra-zone-protobuf-6.1.0.tgz}
     version: 6.1.0
     peerDependencies:
       '@bufbuild/protobuf': ^1.10.0
 
   '@penumbra-zone/query@file:../web/packages/query/penumbra-zone-query-33.0.0.tgz':
-    resolution: {integrity: sha512-155stEwZgfGUkN3u4EpsBoFRJDbGyNaK8zMrTQgVjkQ6WQyd5M/mfkt02wzgGGsu8ZAlerFI/ahe6Ox1UdecVA==, tarball: file:../web/packages/query/penumbra-zone-query-33.0.0.tgz}
+    resolution: {integrity: sha512-kiXYkFVD1BWCz5hPZ2MMVPXuaSL3GGn281paDQg1t6e6ah0mbEjf6kMLm0GbtzO4KgnRgu3Tao+d6g+06LB45w==, tarball: file:../web/packages/query/penumbra-zone-query-33.0.0.tgz}
     version: 33.0.0
     peerDependencies:
       '@penumbra-zone/bech32m': file:///Users/gabe/Desktop/repos/web/packages/bech32m/penumbra-zone-bech32m-8.0.0.tgz
@@ -1998,7 +1996,7 @@ packages:
       '@penumbra-zone/wasm': file:///Users/gabe/Desktop/repos/web/packages/wasm/penumbra-zone-wasm-29.1.0.tgz
 
   '@penumbra-zone/services@file:../web/packages/services/penumbra-zone-services-36.0.0.tgz':
-    resolution: {integrity: sha512-DfA/S2j+cPc/iTuRtlXv79iEALga2SVHCUd2uWTlFzfqzt2ZIV1T4zWGrLkPWj6T/OfcoOIq1dto7gCsFYrKzw==, tarball: file:../web/packages/services/penumbra-zone-services-36.0.0.tgz}
+    resolution: {integrity: sha512-fbE11I660PgFSyv1zj0hKY/qT42SpxBf4GqU8jqlQPpN1i06+b3qVLyWVRxgP0oIkFhW3hbzrmrFVR0uESAyDg==, tarball: file:../web/packages/services/penumbra-zone-services-36.0.0.tgz}
     version: 36.0.0
     peerDependencies:
       '@bufbuild/protobuf': ^1.10.0
@@ -2014,7 +2012,7 @@ packages:
       '@penumbra-zone/wasm': file:///Users/gabe/Desktop/repos/web/packages/wasm/penumbra-zone-wasm-29.1.0.tgz
 
   '@penumbra-zone/storage@file:../web/packages/storage/penumbra-zone-storage-32.0.0.tgz':
-    resolution: {integrity: sha512-zjlxGPEEWWbcM8fvWmv1YqsOcXspfmFEi4CPdPOmNJv7E1np1wpK+HKmsTMlRbTvipaauGfCOD0vPVdVc4lthA==, tarball: file:../web/packages/storage/penumbra-zone-storage-32.0.0.tgz}
+    resolution: {integrity: sha512-XlRt0m2PQi5NiT0lpiBfekjsV6tlYiy1x+KNXZ8sJMhGNdFoiH6sfHjuui4OuLZ/oqbN+TvCEzHmP27m+3M7HA==, tarball: file:../web/packages/storage/penumbra-zone-storage-32.0.0.tgz}
     version: 32.0.0
     peerDependencies:
       '@bufbuild/protobuf': ^1.10.0
@@ -2038,7 +2036,7 @@ packages:
     version: 7.5.0
 
   '@penumbra-zone/types@file:../web/packages/types/penumbra-zone-types-24.0.0.tgz':
-    resolution: {integrity: sha512-dRtpA7M9YgDpoZua9VtccGjteOkNg22Zo5O0SK1x5nMvpQFumIMyg53CQ/s/qoxtrtn0UUI0G6V4mbwydeQmdQ==, tarball: file:../web/packages/types/penumbra-zone-types-24.0.0.tgz}
+    resolution: {integrity: sha512-mvzWto4iy0uaNFa/oLXW1TB95v09aSpOsVYk2FePBUjl+lXt2/JX+9mE6myMiItQkHUXmaVFjKK0n8AD/PZawA==, tarball: file:../web/packages/types/penumbra-zone-types-24.0.0.tgz}
     version: 24.0.0
     peerDependencies:
       '@bufbuild/protobuf': ^1.10.0
@@ -2047,7 +2045,7 @@ packages:
       '@penumbra-zone/protobuf': file:///Users/gabe/Desktop/repos/web/packages/protobuf/penumbra-zone-protobuf-6.1.0.tgz
 
   '@penumbra-zone/wasm@file:../web/packages/wasm/penumbra-zone-wasm-29.1.0.tgz':
-    resolution: {integrity: sha512-bFpcdYp7A+YoeoPTtBF+pla63ozsOTeREk/3CJqAx01sZnWfr7mF1g1Tub7rJlKDvXcbzFXp1qomcj783pyDFQ==, tarball: file:../web/packages/wasm/penumbra-zone-wasm-29.1.0.tgz}
+    resolution: {integrity: sha512-0HVFDyTpHgnMwPUsXOURQ++laBodBnr8YwkVolyHV9qnfKUtwxF3VAi75Hl5gYYRBVWteDiIPHxmfy2UAFfDaw==, tarball: file:../web/packages/wasm/penumbra-zone-wasm-29.1.0.tgz}
     version: 29.1.0
     peerDependencies:
       '@bufbuild/protobuf': ^1.10.0
@@ -10443,7 +10441,7 @@ snapshots:
       '@penumbra-zone/bech32m': file:../web/packages/bech32m/penumbra-zone-bech32m-8.0.0.tgz(@penumbra-zone/protobuf@file:../web/packages/protobuf/penumbra-zone-protobuf-6.1.0.tgz(@bufbuild/protobuf@1.10.0))
       '@penumbra-zone/protobuf': file:../web/packages/protobuf/penumbra-zone-protobuf-6.1.0.tgz(@bufbuild/protobuf@1.10.0)
 
-  '@penumbra-zone/keys@file:../web/packages/keys/penumbra-zone-keys-4.2.1.tgz': {}
+  '@penumbra-zone/keys@4.2.1': {}
 
   '@penumbra-zone/perspective@file:../web/packages/perspective/penumbra-zone-perspective-32.0.0.tgz(@bufbuild/protobuf@1.10.0)(@penumbra-zone/bech32m@file:../web/packages/bech32m/penumbra-zone-bech32m-8.0.0.tgz(@penumbra-zone/protobuf@file:../web/packages/protobuf/penumbra-zone-protobuf-6.1.0.tgz(@bufbuild/protobuf@1.10.0)))(@penumbra-zone/getters@file:../web/packages/getters/penumbra-zone-getters-18.0.0.tgz(@bufbuild/protobuf@1.10.0)(@penumbra-zone/bech32m@file:../web/packages/bech32m/penumbra-zone-bech32m-8.0.0.tgz(@penumbra-zone/protobuf@file:../web/packages/protobuf/penumbra-zone-protobuf-6.1.0.tgz(@bufbuild/protobuf@1.10.0)))(@penumbra-zone/protobuf@file:../web/packages/protobuf/penumbra-zone-protobuf-6.1.0.tgz(@bufbuild/protobuf@1.10.0)))(@penumbra-zone/protobuf@file:../web/packages/protobuf/penumbra-zone-protobuf-6.1.0.tgz(@bufbuild/protobuf@1.10.0))(@penumbra-zone/wasm@file:../web/packages/wasm/penumbra-zone-wasm-29.1.0.tgz(p2omax6xe2f7bd2gs6rblgmzgi))':
     dependencies:
@@ -10523,7 +10521,7 @@ snapshots:
       '@penumbra-zone/protobuf': file:../web/packages/protobuf/penumbra-zone-protobuf-6.1.0.tgz(@bufbuild/protobuf@1.10.0)
       '@penumbra-zone/types': file:../web/packages/types/penumbra-zone-types-24.0.0.tgz(@bufbuild/protobuf@1.10.0)(@penumbra-zone/bech32m@file:../web/packages/bech32m/penumbra-zone-bech32m-8.0.0.tgz(@penumbra-zone/protobuf@file:../web/packages/protobuf/penumbra-zone-protobuf-6.1.0.tgz(@bufbuild/protobuf@1.10.0)))(@penumbra-zone/getters@file:../web/packages/getters/penumbra-zone-getters-18.0.0.tgz(@bufbuild/protobuf@1.10.0)(@penumbra-zone/bech32m@file:../web/packages/bech32m/penumbra-zone-bech32m-8.0.0.tgz(@penumbra-zone/protobuf@file:../web/packages/protobuf/penumbra-zone-protobuf-6.1.0.tgz(@bufbuild/protobuf@1.10.0)))(@penumbra-zone/protobuf@file:../web/packages/protobuf/penumbra-zone-protobuf-6.1.0.tgz(@bufbuild/protobuf@1.10.0)))(@penumbra-zone/protobuf@file:../web/packages/protobuf/penumbra-zone-protobuf-6.1.0.tgz(@bufbuild/protobuf@1.10.0))
     optionalDependencies:
-      '@penumbra-zone/keys': file:../web/packages/keys/penumbra-zone-keys-4.2.1.tgz
+      '@penumbra-zone/keys': 4.2.1
 
   '@pkgjs/parseargs@0.11.0':
     optional: true

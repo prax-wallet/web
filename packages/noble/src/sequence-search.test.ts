@@ -6,8 +6,8 @@ import {
   getForwardingAddressForSequence,
   getFullViewingKey,
 } from '@penumbra-zone/wasm/keys';
-import { Address } from '@penumbra-zone/protobuf/penumbra/core/keys/v1/keys_pb';
 import { bech32mAddress } from '@penumbra-zone/bech32m/penumbra';
+import { Address } from '@penumbra-zone/protobuf/penumbra/core/keys/v1/keys_pb';
 
 const seedPhrase =
   'benefit cherry cannon tooth exhibit law avocado spare tooth that amount pumpkin scene foil tape mobile shine apology add crouch situate sun business explain';
@@ -80,5 +80,63 @@ describe('getNextSequence', () => {
 
     const seq = await getNextSequence({ client, fvk });
     expect(seq).toEqual(MAX_SEQUENCE_NUMBER);
+  });
+
+  it('should handle the case when left === mid and AlreadyRegistered is returned', async () => {
+    // Set up client so that sequences 0 to 5 are registered, and 6 onwards are unused
+    const client = new MockNobleClient();
+    for (let i = 0; i <= 5; i++) {
+      client.setResponse({ response: NobleRegistrationResponse.AlreadyRegistered, sequence: i });
+    }
+
+    const seq = await getNextSequence({ client, fvk });
+    expect(seq).toEqual(6);
+  });
+
+  it('should handle the case when mid + 1 exceeds MAX_SEQUENCE_NUMBER', async () => {
+    const client = new MockNobleClient();
+
+    // Simulate that all sequence numbers are registered except the last one
+    for (let i = 0; i < MAX_SEQUENCE_NUMBER; i++) {
+      client.setResponse({ response: NobleRegistrationResponse.AlreadyRegistered, sequence: i });
+    }
+    client.setResponse({
+      response: NobleRegistrationResponse.Success,
+      sequence: MAX_SEQUENCE_NUMBER,
+    });
+
+    const seq = await getNextSequence({ client, fvk });
+    expect(seq).toEqual(MAX_SEQUENCE_NUMBER + 1);
+  });
+
+  it('should handle incorrectly sequenced registrations', async () => {
+    const client = new MockNobleClient();
+    client.setResponse({ response: NobleRegistrationResponse.AlreadyRegistered, sequence: 0 });
+    client.setResponse({ response: NobleRegistrationResponse.Success, sequence: 1 });
+    client.setResponse({ response: NobleRegistrationResponse.NeedsDeposit, sequence: 2 });
+    client.setResponse({ response: NobleRegistrationResponse.AlreadyRegistered, sequence: 3 });
+    client.setResponse({ response: NobleRegistrationResponse.Success, sequence: 4 });
+    client.setResponse({ response: NobleRegistrationResponse.NeedsDeposit, sequence: 5 });
+
+    const seq = await getNextSequence({ client, fvk });
+
+    // The algorithm doesn't guarantee the earliest non-deposited, but should return at least one
+    expect([2, 5].includes(seq)).toBeTruthy();
+  });
+
+  it('should handle the case when a Success response is received at the highest sequence number', async () => {
+    const client = new MockNobleClient();
+
+    // Simulate that all sequence numbers except the maximum are registered
+    for (let i = 0; i < MAX_SEQUENCE_NUMBER; i++) {
+      client.setResponse({ response: NobleRegistrationResponse.AlreadyRegistered, sequence: i });
+    }
+    client.setResponse({
+      response: NobleRegistrationResponse.Success,
+      sequence: MAX_SEQUENCE_NUMBER,
+    });
+
+    const seq = await getNextSequence({ client, fvk });
+    expect(seq).toEqual(MAX_SEQUENCE_NUMBER + 1);
   });
 });

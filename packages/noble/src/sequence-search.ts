@@ -5,7 +5,7 @@ import { getForwardingAddressForSequence } from '@penumbra-zone/wasm/keys';
 // Search space (sequence number) is 2 bytes wide
 export const MAX_SEQUENCE_NUMBER = 65535;
 
-// Perform binary search to find the first unused noble sequence number
+// Perform binary search to find the earliest unused noble sequence number
 export const getNextSequence = async ({
   fvk,
   accountIndex,
