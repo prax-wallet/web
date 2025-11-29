@@ -12,7 +12,10 @@ const MainPopup = () => {
   return (
     <StrictMode>
       <QueryClientProvider client={queryClient}>
-        <RouterProvider router={popupRouter} />
+        <RouterProvider
+          router={popupRouter}
+          future={{ v7_startTransition: true }}
+        />
       </QueryClientProvider>
     </StrictMode>
   );

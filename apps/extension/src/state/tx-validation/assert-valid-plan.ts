@@ -2,7 +2,8 @@ import { AnyMessage, Message, PartialMessage } from '@bufbuild/protobuf';
 import { bech32mAddress } from '@penumbra-zone/bech32m/penumbra';
 import { Address, FullViewingKey } from '@penumbra-zone/protobuf/penumbra/core/keys/v1/keys_pb';
 import { ActionPlan } from '@penumbra-zone/protobuf/penumbra/core/transaction/v1/transaction_pb';
-import { isControlledAddress } from '@penumbra-zone/wasm/address';
+// Dynamic import to avoid bundling WASM into initial chunks (service worker)
+// import { isControlledAddress } from '@penumbra-zone/wasm/address';
 import { Code, ConnectError } from '@connectrpc/connect';
 
 /** guard nonzero inner */
@@ -16,23 +17,23 @@ const hasInner = <M extends Message<M> = AnyMessage>(
   a.inner.some(v => v);
 
 /** Assert specific features for some plans. */
-export function assertValidActionPlans(
+export async function assertValidActionPlans(
   actions?: PartialMessage<ActionPlan>[],
   fvk?: PartialMessage<FullViewingKey>,
-): asserts actions is ActionPlan[] {
+): Promise<void> {
   if (!actions?.length) {
     throw new RangeError('No actions planned', { cause: actions });
   }
 
   for (const actionPlan of actions) {
-    assertValidActionPlan(actionPlan, fvk);
+    await assertValidActionPlan(actionPlan, fvk);
   }
 }
 
-export function assertValidActionPlan(
+export async function assertValidActionPlan(
   actionPlan: PartialMessage<ActionPlan>,
   fvk?: PartialMessage<FullViewingKey>,
-): asserts actionPlan is ActionPlan & { action: { case: string } } {
+): Promise<void> {
   const { action } = actionPlan;
 
   if (action?.value == null || !Object.values(action.value).some(v => v != null)) {
@@ -88,6 +89,9 @@ export function assertValidActionPlan(
             Code.Unauthenticated,
           );
         }
+
+        // Dynamic import to avoid bundling WASM into initial chunks (service worker)
+        const { isControlledAddress } = await import('@penumbra-zone/wasm/address');
 
         if (
           !isControlledAddress(

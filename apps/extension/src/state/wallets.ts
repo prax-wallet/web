@@ -1,7 +1,8 @@
 import { Key } from '@repo/encryption/key';
 import { Box } from '@repo/encryption/box';
 import { Wallet, type WalletJson } from '@repo/wallet';
-import { generateSpendKey, getFullViewingKey, getWalletId } from '@penumbra-zone/wasm/keys';
+// Dynamic import to avoid bundling WASM into initial chunks
+// import { generateSpendKey, getFullViewingKey, getWalletId } from '@penumbra-zone/wasm/keys';
 import type { ExtensionStorage } from '@repo/storage-chrome/base';
 import type { LocalStorageState } from '@repo/storage-chrome/local';
 import type { SessionStorageState } from '@repo/storage-chrome/session';
@@ -23,6 +24,11 @@ export const createWalletsSlice =
     return {
       all: [],
       addWallet: async ({ label, seedPhrase }) => {
+        // Dynamic import to avoid bundling WASM into initial chunks (service worker)
+        const { generateSpendKey, getFullViewingKey, getWalletId } = await import(
+          '@penumbra-zone/wasm/keys'
+        );
+
         const seedPhraseStr = seedPhrase.join(' ');
         const spendKey = generateSpendKey(seedPhraseStr);
         const fullViewingKey = getFullViewingKey(spendKey);

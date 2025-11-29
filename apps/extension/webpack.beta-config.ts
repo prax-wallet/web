@@ -23,10 +23,13 @@ const PRAX_ID = 'ejpfkiblcablembkdhcofhokccbbppnc';
  * and modifies the `manifest.json` file to use the correct extension information
  */
 export default ({ WEBPACK_WATCH = false }: { ['WEBPACK_WATCH']?: boolean }) => {
-  const appliedConfig = config({ PRAX_ID, WEBPACK_WATCH });
+  const configs = config({ PRAX_ID, WEBPACK_WATCH });
+  const distPath = path.join(__dirname, 'beta-dist');
 
-  appliedConfig.output!.path = path.join(__dirname, 'beta-dist');
-  appliedConfig.plugins!.push(BetaManifestReplacerPlugin);
-
-  return appliedConfig;
+  return configs.map((cfg, index) => ({
+    ...cfg,
+    output: { ...cfg.output, path: distPath },
+    // Add the manifest replacer plugin only to the first (browser) config
+    plugins: index === 0 ? [...(cfg.plugins ?? []), BetaManifestReplacerPlugin] : cfg.plugins,
+  }));
 };

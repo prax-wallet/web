@@ -9,7 +9,10 @@ const PRAX_ID = 'lkpmkhpnhknhmibgnmmhdhgdilepfghe';
  * This config defines the Prax Chrome ID and the output directory
  */
 export default ({ WEBPACK_WATCH = false }: { ['WEBPACK_WATCH']?: boolean }) => {
-  const appliedConfig = config({ PRAX_ID, WEBPACK_WATCH });
-  appliedConfig.output!.path = path.join(__dirname, 'dist');
-  return appliedConfig;
+  const configs = config({ PRAX_ID, WEBPACK_WATCH });
+  const distPath = path.join(__dirname, 'dist');
+  return configs.map(cfg => ({
+    ...cfg,
+    output: { ...cfg.output, path: distPath },
+  }));
 };

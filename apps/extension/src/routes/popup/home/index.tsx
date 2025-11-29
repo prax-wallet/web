@@ -1,6 +1,7 @@
 import { Address } from '@penumbra-zone/protobuf/penumbra/core/keys/v1/keys_pb';
 import { SelectAccount } from '@repo/ui/components/ui/select';
-import { getAddressByIndex, getEphemeralByIndex } from '@penumbra-zone/wasm/keys';
+// Dynamic import to avoid bundling WASM into initial chunks
+// import { getAddressByIndex, getEphemeralByIndex } from '@penumbra-zone/wasm/keys';
 import { Wallet } from '@repo/wallet';
 import { IndexHeader } from './index-header';
 import { useStore } from '../../../state';
@@ -44,10 +45,13 @@ export const popupIndexLoader = async (): Promise<Response | PopupLoaderData> =>
 
 const getAddrByIndex =
   (wallet?: Wallet) =>
-  (index: number, ephemeral: boolean): Address => {
+  async (index: number, ephemeral: boolean): Promise<Address> => {
     if (!wallet) {
       throw new Error('No active wallet');
     }
+
+    // Dynamic import to avoid bundling WASM into initial chunks
+    const { getAddressByIndex, getEphemeralByIndex } = await import('@penumbra-zone/wasm/keys');
 
     const fullViewingKey = wallet.fullViewingKey;
     return ephemeral

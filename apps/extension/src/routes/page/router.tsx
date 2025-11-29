@@ -22,4 +22,8 @@ export const pageRoutes: RouteObject[] = [
   },
 ];
 
-export const pageRouter = createHashRouter(pageRoutes);
+export const pageRouter = createHashRouter(pageRoutes, {
+  future: {
+    v7_relativeSplatPath: true,
+  } as { v7_relativeSplatPath: boolean },
+});

@@ -16,6 +16,7 @@ dist
 beta-dist
 dist-ssr
 *.local
+apps/extension/public/wasm-parallel
 
 # local env files
 .env

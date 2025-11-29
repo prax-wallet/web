@@ -64,7 +64,7 @@ export const createTxApprovalSlice =
 
       let invalidPlan: ConnectError | undefined;
       try {
-        assertValidActionPlans(authorizeRequest.plan?.actions, fvk);
+        await assertValidActionPlans(authorizeRequest.plan?.actions, fvk);
         invalidPlan = undefined;
       } catch (e) {
         invalidPlan = ConnectError.from(e, Code.InvalidArgument);
